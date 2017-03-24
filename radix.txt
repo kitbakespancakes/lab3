@@ -1,0 +1,92 @@
+#include <iostream>
+#include <ctime>
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
+#include <cstdlib>
+using namespace std;
+
+class bubble {
+
+public:
+void Sort(int t);
+void in(int t);
+void Out(int t);
+void Outdo(int t);
+void rands(int t);
+	int x,a[1000],b,y[1000];
+int digit(int t, int p)
+{
+    return (t>>(8 * p) & 255);
+}
+
+};
+/*void bubble::in(int t)
+{
+    for (int n=0; n<s ; n++)
+    cin >> a[n];
+}*/
+void bubble::rands(int t)
+{
+    for (int i = 0; i < t; i++)
+{
+a[i] = rand()%10+1;
+}
+}
+void bubble::Out(int t)
+{
+    for (int i=0; i<t; i++)
+    cout << a[i] <<" ";
+    cout << endl;
+}
+void bubble::Outdo(int t)
+{
+    for (int i=0; i<t; i++)
+    cout << a[i] <<" ";
+    cout << endl;
+}
+void bubble::Sort(int t)
+{
+
+    int k = sizeof(int);
+    for(int i = 0; i < k; i++)
+    {
+        int c[256] = {0};
+        for(int j = 0; j < t; j++)
+        {
+            c[digit(a[j],i)]++;
+        }
+        for(int j = 1; j < 256;j++)
+        {
+            c[j]+=c[j-1];
+        }
+        for(int j = t-1; j >-1;j--)
+        {
+            y[--c[digit(a[j],i)]] = a[j];
+        }
+        for(int j = 0; j < t; j++)
+        {
+            a[j] = y[j];
+        }
+    }
+
+}
+
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int b;
+    bubble v;
+    cout << " Введите длину массива : "<< endl;
+    cin >> b;
+    //v.in(b);
+    v.rands(b);
+    cout << "Неотсортированный массив :" << endl;
+    v.Outdo(b);
+    v.Sort(b);
+    cout << "Отсортированный массив методом гномов :"<<endl;
+    v.Out(b);
+cout << endl;
+    return 0;
+}
