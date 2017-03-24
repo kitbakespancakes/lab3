@@ -1,0 +1,69 @@
+#include <iostream>
+#include <ctime>
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
+#include <cstdlib>
+using namespace std;
+
+class bubble {
+
+public:
+void Sort(int t);
+void in(int t);
+void Out(int t);
+void Outdo(int t);
+void rands(int t);
+	int x,a[100],b;
+
+};
+/*void bubble::in(int t)
+{
+    for (int n=0; n<s ; n++)
+    cin >> a[n];
+}*/
+void bubble::rands(int t)
+{
+    for (int i = 0; i < t; i++)
+{
+a[i] = rand()%10+1;
+}
+}
+void bubble::Out(int t)
+{
+    for (int i=0; i<t; i++)
+    cout << a[i] <<" ";
+    cout << endl;
+}
+void bubble::Outdo(int t)
+{
+    for (int i=0; i<t; i++)
+    cout << a[i] <<" ";
+    cout << endl;
+}
+void bubble::Sort(int t)
+{
+    int i=0;
+    while (i < t)
+        if (i == 0 || a[i - 1] <= a[i]) ++i;
+        else { swap(a[i], a[i - 1]); --i; }
+}
+
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int b;
+    bubble v;
+    cout << " Введите длину массива : "<< endl;
+    cin >> b;
+    //v.in(b);
+    v.rands(b);
+    cout << "Неотсортированный массив :" << endl;
+    v.Outdo(b);
+    v.Sort(b);
+    cout << "Отсортированный массив методом гномов :"<<endl;
+    v.Out(b);
+cout << endl;
+    return 0;
+}
