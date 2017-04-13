@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1490411090 source:c:\users\dmitr\desktop\Новая папка\lab3radix\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
